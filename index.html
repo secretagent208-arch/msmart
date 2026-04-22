@@ -1,45 +1,150 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Online Shop</title>
-  <link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Landing Page</title>
+
+<style>
+body{
+  font-family: Arial;
+  margin:0;
+  background:#f2f2f2;
+}
+
+.container{
+  max-width:400px;
+  margin:auto;
+  background:white;
+}
+
+.header{
+  text-align:center;
+  padding:15px;
+  background:#111;
+  color:white;
+}
+
+.product-img{
+  width:100%;
+}
+
+.content{
+  padding:15px;
+}
+
+.price{
+  font-size:22px;
+  color:green;
+  font-weight:bold;
+}
+
+.old-price{
+  text-decoration: line-through;
+  color:red;
+  font-size:14px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.cart{
+  background:orange;
+  color:white;
+}
+
+.whatsapp{
+  background:green;
+  color:white;
+}
+
+.timer{
+  background:#ffdddd;
+  padding:10px;
+  text-align:center;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.review{
+  background:#f9f9f9;
+  padding:10px;
+  margin-top:10px;
+  border-radius:5px;
+}
+
+</style>
+
 </head>
+
 <body>
 
-  <div class="navbar">
-    <h2>MyShop</h2>
+<div class="container">
+
+  <div class="header">
+    🔥 HOT DEAL TODAY
   </div>
 
-  <div class="banner">
-    <h1>Welcome to My Online Shop</h1>
-    <p>Best Products • Best Price</p>
+  <img class="product-img" src="https://via.placeholder.com/400" />
+
+  <div class="content">
+
+    <h2>Wireless Earbuds Pro</h2>
+
+    <div class="price">799 TK <span class="old-price">1200 TK</span></div>
+
+    <div class="timer">
+      ⏳ Offer ends in: <span id="time">10:00</span>
+    </div>
+
+    <button class="cart" onclick="addCart()">Add to Cart</button>
+
+    <a href="https://wa.me/8801XXXXXXXXX?text=I want to order earbuds">
+      <button class="whatsapp">Order on WhatsApp</button>
+    </a>
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐ "Best sound quality!" - Rahim
+    </div>
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐ "Fast delivery, nice product" - Karim
+    </div>
+
   </div>
 
-  <div class="products">
+</div>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/200">
-      <h3>Product 1</h3>
-      <p>Price: 500 BDT</p>
-      <button onclick="buyNow('Product 1')">Buy Now</button>
-    </div>
+<script>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/200">
-      <h3>Product 2</h3>
-      <p>Price: 800 BDT</p>
-      <button onclick="buyNow('Product 2')">Buy Now</button>
-    </div>
+// Fake cart alert
+function addCart(){
+  alert("Product added to cart!");
+}
 
-    <div class="card">
-      <img src="https://via.placeholder.com/200">
-      <h3>Product 3</h3>
-      <p>Price: 1200 BDT</p>
-      <button onclick="buyNow('Product 3')">Buy Now</button>
-    </div>
+// Countdown timer
+let time = 600;
 
-  </div>
+setInterval(function(){
+  let min = Math.floor(time/60);
+  let sec = time%60;
 
-  <script src="script.js"></script>
+  document.getElementById("time").innerHTML = min + ":" + sec;
+
+  time--;
+
+  if(time < 0){
+    time = 600;
+  }
+
+},1000);
+
+</script>
+
 </body>
 </html>
